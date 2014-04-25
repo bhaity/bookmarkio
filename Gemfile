@@ -36,6 +36,8 @@ gem 'acts-as-taggable-on'
 gem 'ffaker'
 gem 'metainspector'
 gem 'shorturl'
+gem "twitter-bootstrap-rails"
+
 
 
 
