@@ -1,24 +1,33 @@
-%p#notice= notice
+- model_class = Bookmark
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %b Title:
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
   = @bookmark.title
 %p
-  %b Description:
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
   = @bookmark.description
 %p
-  %b Keywords:
+  %strong= model_class.human_attribute_name(:keywords) + ':'
+  %br
   = @bookmark.keywords
 %p
-  %b Url:
+  %strong= model_class.human_attribute_name(:url) + ':'
+  %br
   = @bookmark.url
 %p
-  %b Short url:
+  %strong= model_class.human_attribute_name(:short_url) + ':'
+  %br
   = @bookmark.short_url
 %p
-  %b Image url:
+  %strong= model_class.human_attribute_name(:image_url) + ':'
+  %br
   = @bookmark.image_url
 
-= link_to 'Edit', edit_bookmark_path(@bookmark)
-\|
-= link_to 'Back', bookmarks_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), bookmarks_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_bookmark_path(@bookmark), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), bookmark_path(@bookmark), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

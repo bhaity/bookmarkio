@@ -1,29 +1,31 @@
-%h1 Listing bookmarks
-
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Keywords
-    %th Url
-    %th Short url
-    %th Image url
-    %th
-    %th
-    %th
-
-  - @bookmarks.each do |bookmark|
+- model_class = Bookmark
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
     %tr
-      %td= bookmark.title
-      %td= bookmark.description
-      %td= bookmark.keywords
-      %td= bookmark.url
-      %td= bookmark.short_url
-      %td= bookmark.image_url
-      %td= link_to 'Show', bookmark
-      %td= link_to 'Edit', edit_bookmark_path(bookmark)
-      %td= link_to 'Destroy', bookmark, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:title)
+      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:keywords)
+      %th= model_class.human_attribute_name(:url)
+      %th= model_class.human_attribute_name(:short_url)
+      %th= model_class.human_attribute_name(:image_url)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @bookmarks.each do |bookmark|
+      %tr
+        %td= link_to bookmark.id, bookmark_path(bookmark)
+        %td= bookmark.title
+        %td= bookmark.description
+        %td= bookmark.keywords
+        %td= bookmark.url
+        %td= bookmark.short_url
+        %td= bookmark.image_url
+        %td=l bookmark.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_bookmark_path(bookmark), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), bookmark_path(bookmark), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Bookmark', new_bookmark_path
+= link_to t('.new', :default => t("helpers.links.new")), new_bookmark_path, :class => 'btn btn-primary'
