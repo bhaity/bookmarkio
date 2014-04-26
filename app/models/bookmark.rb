@@ -4,8 +4,7 @@ class Bookmark < ActiveRecord::Base
   after_validation :generate_short_url, :get_metadata
   after_save :associate_with_site
 
-
-
+  acts_as_taggable
   belongs_to :site
  
   def url_must_be_valid
