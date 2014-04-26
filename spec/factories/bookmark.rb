@@ -6,5 +6,6 @@ FactoryGirl.define do
     url "http://www.nme.com/blogs/nme-blogs/the-libertines-what-do-you-think-about-a-potential-reunion"
     #short_url "http://tinyurl.com/kys5clb"
     #image_url "http://www.nme.com/images/gallery/2012LibertinesRS300312.jpg"
+    #site
   end
 end
