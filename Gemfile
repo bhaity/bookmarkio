@@ -38,7 +38,7 @@ gem 'acts-as-taggable-on'
 gem 'ffaker'
 gem 'metainspector'
 gem 'shorturl'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'public_suffix'
 
 

@@ -14,4 +14,15 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require imagesloaded.pkgd.min.js
+//= require masonry.pkgd.min.js
 //= require_tree .
+
+$(document).ready(function() {
+  $('.to_mason').imagesLoaded(function(){
+    $('.to-mason').masonry({
+      columnWidth: 375,
+      itemSelector: '.bookmark-tile'
+    });
+  });
+});

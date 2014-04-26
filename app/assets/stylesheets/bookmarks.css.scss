@@ -1,3 +1,21 @@
 // Place all the styles related to the Bookmarks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bookmark-tile{
+	width: 350px;
+	//border: 1px solid #000;
+	padding: 3px;
+	display:inline-block;
+	//min-height:400px;
+	margin: 6px;
+	//background-color:white;
+	border-radius:3px;
+	float:left;
+	box-shadow: 2px 0px 15px #000;
+}
+
+.bookmark-tile img{
+	max-width:100%;
+	background-color: white;
+}
