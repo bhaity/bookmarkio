@@ -1,16 +1,13 @@
 == README
 
-This app enables the user to create bookmarks and add tags to them. The user can search though bookmarks and sites, and filter by tags. The search feature matches tags as well as attributes on the bookmark/site. The part of searching that generates a SQL LIKE statement has been extracted into a concern at app/models/concerns/searchable.rb. This concern can be applied to any future model:
-
-
-inside model.rb:
+This app enables the user to create bookmarks and add tags to them. The user can search though bookmarks and sites, and filter by tags. The search feature matches tags as well as attributes on the bookmark/site. The part of searching that generates a SQL LIKE statement has been extracted into a concern at app/models/concerns/searchable.rb. This concern can be applied to any future model. Inside model.rb:
 
 include Searchable
 
 searchable_by :column1, :column2, :column3 ... etc
 
 
-Then you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by.
+This creates a scope on the model so you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by. It returns an ACtiveRecord::Relation.
 
 The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It is deployed on heroku and can be viewed at http://bookmarkio.herokuapp.com/
 
