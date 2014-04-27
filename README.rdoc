@@ -5,7 +5,7 @@ This app enables the user to create bookmarks and add tags to them. The user can
 include Searchable
 
 searchable_by :column1, :column2, :column3 ... etc
-
+gi
 
 This creates a scope on the model so you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by. It returns an ACtiveRecord::Relation.
 
@@ -20,6 +20,8 @@ The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It 
 3. bundle install
 
 4. rake db:migrate
+
+5. rake db:seed
 
 5. rails s
 
