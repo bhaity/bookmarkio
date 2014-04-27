@@ -11,13 +11,13 @@
       %p
         = link_to("View Page", @bookmark.url, class: "btn btn-large btn-success")
       %p
-        %strong= model_class.human_attribute_name(:description) + ':'
+        %strong= model_class.human_attribute_name(:description) 
         %br
         = best_in_place @bookmark, :description, :type => :textarea
         %br
         %br
       %p
-        %strong= "Tags:"
+        %strong= "Tags"
         %br
         = raw @bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
 
@@ -30,13 +30,13 @@
         %br
         %br
       %p
-        %strong= model_class.human_attribute_name(:url) + ':'
+        %strong= model_class.human_attribute_name(:url) 
         %br
         = link_to("#{@bookmark.url}", @bookmark.url)
         %br
         %br
       %p
-        %strong= model_class.human_attribute_name(:short_url) + ':'
+        %strong= model_class.human_attribute_name(:short_url)
         %br
         = link_to("#{@bookmark.short_url}", @bookmark.short_url)
         %br

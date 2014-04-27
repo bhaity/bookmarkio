@@ -1,12 +1,13 @@
 class Bookmark < ActiveRecord::Base
   validates_presence_of :url
   validate :url_must_be_valid
-  after_validation :generate_short_url
-  before_create :get_metadata
-  before_save :associate_with_site
 
   acts_as_taggable
   belongs_to :site
+
+  after_validation :generate_short_url
+  before_create :get_metadata
+  before_save :associate_with_site
  
   def url_must_be_valid
   	self[:url] = "http://#{url}" unless url && url.start_with?('http')
@@ -24,7 +25,7 @@ class Bookmark < ActiveRecord::Base
     if page
 	    self[:title] = page.title
 	    self[:description] = page.description
-	    self[:keywords] = page.meta['keywords']
+	    self.tag_list.add(page.meta['keywords'], parse: true)
 	    self[:image_url] = page.image || page.images.first
 	  end
   end
