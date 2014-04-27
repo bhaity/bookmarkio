@@ -9,15 +9,17 @@
 	display:inline-block;
 	//min-height:400px;
 	margin: 6px;
-	//background-color:white;
+	background-color:#133C3D;
 	border-radius:3px;
 	float:left;
 	box-shadow: 2px 0px 15px #000;
 }
 
 .bookmark-tile img{
-	max-width:100%;
+	max-width:70%;
 	background-color: white;
+	border-radius:3px;
+	margin: 10px 0 10px 0;
 }
 
 #tag_cloud {
