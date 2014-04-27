@@ -1,28 +1,55 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app enables the user to create bookmarks and add tags to them. The user can search though bookmarks and sites, and filter by tags. The search feature matches tags as well as attributes on the bookmark/site. The part of searching that generates a SQL LIKE statement has been extracted into a concern at app/models/concerns/searchable.rb. This concern can be applied to any future model:
 
-Things you may want to cover:
+```
+model.rb
 
-* Ruby version
+include Searchable
+searchable_by :column1, :column2, :column3 ...
+```
 
-* System dependencies
+Then you can call **Model.search(query)** which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by.
 
-* Configuration
+The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It is deployed on heroku and can be viewed at http://bookmarkio.herokuapp.com/
 
-* Database creation
+== Clone
 
-* Database initialization
+```
+1. git clone https://github.com/bhaity/bookmarkio.git
 
-* How to run the test suite
+2. cd bookmarkio/
 
-* Services (job queues, cache servers, search engines, etc.)
+3. bundle install
 
-* Deployment instructions
+4. rake db:migrate
 
-* ...
+5. rails s
+```
+
+== Gems/JS used
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+gem 'acts-as-taggable-on' - provides tagging functionality for bookmarks
+gem 'metainspector' - pulls metadata like title, description and keywords from the URL
+gem 'shorturl' - uses TinyURL to shorten the URLS
+gem 'twitter-bootstrap-rails' - for front end development, mainly layout, buttons and inputs
+gem 'public_suffix' - used to grab the domain from the URL
+gem 'best_in_place' - used to edit bookmarks and sites on the fly
+
+imagesloaded.js - preloads images for masonry
+masonry.js - nicely fits together bookmark partials of varying height
+jquery.tokeninput.js - used for the tagging interface on the homepage
+
+
+
+== TODO list
+
+- include the ability to add/edit tags on the show bookmark page.
+- create bookmarks using AJAX as soon as the URL is pasted.
+- suggest tags from the site's metadata keywords before bookmark creation so the user can see and approve/edit them.
+- when searching sites by tag name, the bookmark count displayed in parenthesis should only show the number of bookmarks from that site that include the query tag.
+- improve tagging effiency by using a key/value store e.g. redis
+
+
