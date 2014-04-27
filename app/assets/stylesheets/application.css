@@ -36,3 +36,11 @@ input, textarea{
 small{
 	color:white;
 }
+
+.token-input-list-facebook * {
+  text-shadow:none;
+}
+
+.token-input-dropdown-facebook * {
+  text-shadow:none;
+}
