@@ -9,8 +9,13 @@ class BookmarksController < ApplicationController
     if params[:tag]
       @bookmarks = Bookmark.tagged_with(params[:tag])
       @header = "Bookmarks tagged with: #{params[:tag]}"
+    elsif params[:query]
+      @bookmarks = Bookmark.tagged_with(params[:query], any: true, wild: true) | 
+                   Bookmark.where("title LIKE :query OR description LIKE :query",
+                                  {query: "%#{params[:query]}%"})
+      @header = "Searching bookmarks by: #{params[:query]}"
     else
-      @bookmarks = Bookmark.all
+      @bookmarks = Bookmark.order('created_at DESC').all
       @header = "All bookmarks"
     end
   end
@@ -28,6 +33,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
   end
+
 
   # POST /bookmarks
   # POST /bookmarks.json

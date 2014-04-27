@@ -10,6 +10,6 @@
     %h1
       = @header
 .row{style: 'padding-top:50px;'}
-  - @sites.order(:domain).each do |site|
+  - @sites.each do |site|
     = link_to site.domain + " (#{site.bookmarks.count})", site_path(site), class:'lead'
     %br
