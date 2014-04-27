@@ -11,14 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require imagesloaded.pkgd.min.js
 //= require masonry.pkgd.min.js
 //= require jquery.tokeninput.js
 //= require best_in_place
 //= require_tree .
+//= require turbolinks
+
 
 $(document).ready(function(){
 

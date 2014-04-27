@@ -42,6 +42,8 @@ gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branc
 gem 'public_suffix'
 gem 'select2-rails'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
+gem 'jquery-turbolinks'
+
 
 
 
