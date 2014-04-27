@@ -2,12 +2,13 @@
 
 This app enables the user to create bookmarks and add tags to them. The user can search though bookmarks and sites, and filter by tags. The search feature matches tags as well as attributes on the bookmark/site. The part of searching that generates a SQL LIKE statement has been extracted into a concern at app/models/concerns/searchable.rb. This concern can be applied to any future model. Inside model.rb:
 
+
 include Searchable
 
 searchable_by :column1, :column2, :column3 ... etc
-gi
 
-This creates a scope on the model so you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by. It returns an ACtiveRecord::Relation.
+
+This creates a scope on the model so you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by. It returns an ActiveRecord::Relation.
 
 The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It is deployed on heroku and can be viewed at http://bookmarkio.herokuapp.com/
 
@@ -56,6 +57,6 @@ jquery.tokeninput.js - used for the tagging interface on the homepage
 - create bookmarks using AJAX as soon as the URL is pasted.
 - suggest tags from the site's metadata keywords before bookmark creation so the user can see and approve/edit them.
 - when searching sites by tag name, the bookmark count displayed in parenthesis should only show the number of bookmarks from that site that include the query tag.
-- improve tagging effiency by using a key/value store e.g. redis
+- improve tagging effiency by using a key/value store instead e.g. redis
 
 
