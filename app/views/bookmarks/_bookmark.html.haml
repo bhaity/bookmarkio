@@ -2,6 +2,5 @@
   = link_to truncate(bookmark.title, length: 100), bookmark, style: 'padding:5px'
   %br
   = link_to(image_tag(bookmark.image_url || image_url('default-bookmark2.png')), bookmark)
-  %br
   = raw bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') 
  

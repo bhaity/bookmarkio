@@ -8,6 +8,9 @@ class Bookmark < ActiveRecord::Base
   after_validation :generate_short_url
   before_create :get_metadata
   before_save :associate_with_site
+
+  include Searchable
+  searchable_by :title, :description
  
   def url_must_be_valid
   	self[:url] = "http://#{url}" unless url && url.start_with?('http')
@@ -31,7 +34,7 @@ class Bookmark < ActiveRecord::Base
   end
 
   def associate_with_site
-  	self[:site_id] = Site.find_or_create_by(domain: PublicSuffix.parse(URI.parse(url).host).domain).id
+  	self[:site_id] = Site.find_or_create_by(domain: PublicSuffix.parse(URI.parse(url).host).domain).id rescue nil
   end
 
 end

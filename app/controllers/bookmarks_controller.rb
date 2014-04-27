@@ -11,8 +11,7 @@ class BookmarksController < ApplicationController
       @header = "Bookmarks tagged with: #{params[:tag]}"
     elsif params[:query]
       @bookmarks = Bookmark.tagged_with(params[:query], any: true, wild: true) | 
-                   Bookmark.where("title LIKE :query OR description LIKE :query",
-                                  {query: "%#{params[:query]}%"})
+                   Bookmark.search(params[:query])
       @header = "Searching bookmarks by: #{params[:query]}"
     else
       @bookmarks = Bookmark.order('created_at DESC').all

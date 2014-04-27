@@ -6,10 +6,10 @@ class SitesController < ApplicationController
   def index
     if params[:query]
       @sites = Bookmark.tagged_with(params[:query], any: true, wild: true).map(&:site) |
-               Site.joins(:bookmarks).uniq.where("domain LIKE :query OR bookmarks.title LIKE :query OR bookmarks.description LIKE :query", {query: "%#{params[:query]}%"}).order(:domain)
+               Site.joins(:bookmarks).uniq.search(params[:query]).order(:domain)
       @header = "Searching sites by: #{params[:query]}"
     else
-      @sites = Site.all
+      @sites = Site.order('domain DESC').all
       @header = "All sites"
     end
   end
