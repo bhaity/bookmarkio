@@ -39,12 +39,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'acts-as-taggable-on'
-gem 'ffaker'
 gem 'metainspector'
 gem 'shorturl'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'public_suffix'
-gem 'select2-rails'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
 gem 'jquery-turbolinks'
 

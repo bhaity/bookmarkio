@@ -72,7 +72,6 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
-    ffaker (1.24.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -164,8 +163,6 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    select2-rails (3.5.4)
-      thor (~> 0.14)
     shorturl (1.0.0)
     spring (1.1.2)
     sprockets (2.11.0)
@@ -201,7 +198,6 @@ DEPENDENCIES
   better_errors
   coffee-rails (~> 4.0.0)
   factory_girl_rails
-  ffaker
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
@@ -214,7 +210,6 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  select2-rails
   shorturl
   spring
   sqlite3
