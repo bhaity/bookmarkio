@@ -45,4 +45,5 @@ urls = [ 'http://mashable.com/2014/04/24/drones-satellite-imagery-art/',
 
 urls.each do |u|
   Bookmark.create!(url: u)
+  puts url
 end
