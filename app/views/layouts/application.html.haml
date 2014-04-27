@@ -23,7 +23,7 @@
         .inner
           - unless current_page?(root_path)
             %h3.masthead-brand
-              Bookmark.io
+              = link_to "Bookmark.io", root_path
           %ul.nav.masthead-nav
             %li{class: ('active' if current_page?(root_path))} 
               = link_to 'Home', '/'
@@ -38,9 +38,7 @@
       .mastfoot
         .inner
           %p
-            Bookmarkio by bhaity
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
+            = link_to "Bookmarkio", "http://github.com/bhaity/bookmarkio"
+            by
+            = link_to  "bhaity", "http://github.com/bhaity/"
+  

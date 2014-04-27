@@ -11,26 +11,4 @@
     .controls
       = f.text_field :tag_list, class: 'tag-select', placeholder: "Enter tags", data: { saved: f.object.tags.map{|t| {id: t.name, name: t.name}}.to_json, url: autocomplete_tags_path }
       =# f.text_field :tag_list, :class => 'text_field', id: 'tags_text_field'
-  / .control-group
-  /   = f.label :title, :class => 'control-label'
-  /   .controls
-  /     = f.text_field :title, :class => 'text_field'
-  / .control-group
-  /   = f.label :description, :class => 'control-label'
-  /   .controls
-  /     = f.text_field :description, :class => 'text_field'
-  / .control-group
-  /   = f.label :keywords, :class => 'control-label'
-  /   .controls
-  /     = f.text_field :keywords, :class => 'text_field'
-  / .control-group
-  /   = f.label :short_url, :class => 'control-label'
-  /   .controls
-  /     = f.text_field :short_url, :class => 'text_field'
-  / .control-group
-  /   = f.label :image_url, :class => 'control-label'
-  /   .controls
-  /     = f.text_field :image_url, :class => 'text_field'
-  / .form-actions
-  /   = f.submit nil, :class => 'btn btn-primary'
-  /   = link_to t('.cancel', :default => t("helpers.links.cancel")), bookmarks_path, :class => 'btn'
+  
