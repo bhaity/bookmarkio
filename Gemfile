@@ -11,7 +11,11 @@ group :development, :test do
   gem 'better_errors'
 end
 
-gem 'pg', group: :production
+group :production, :staging do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
