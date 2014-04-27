@@ -30,9 +30,11 @@ $(document).ready(function(){
   $('.tag-select').tokenInput(url, {
   	theme: 'facebook',
   	minChars: 1,
+    hintText: "Search for existing tags or create new ones",
+    noResultsText: "No tags found. Press enter to create new tag.",
     allowCustomEntry: true,
+    allowFreeTagging: true,
     preventDuplicates: true
-    //prePopulate: $('#movie_tag_list_tokens').data('load')
   });
 
   $('.to_mason').imagesLoaded(function(){
