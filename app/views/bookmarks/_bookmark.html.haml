@@ -1,22 +1,6 @@
 .bookmark-tile
-  = link_to truncate(bookmark.title, length: 50), bookmark
-  = link_to(image_tag(bookmark.image_url || image_url('default-bookmark2.png')), bookmark.url)
-  = bookmark.keywords
-  / = photo.appearances.collect{|u| link_to(u.person.name, u.person)}.join(', ').html_safe
-  / %br
-  / %b
-  /   \#
-  /   %span>= photo.id
-  / %br
-  / Collection:
-  / = link_to(photo.collection.name, photo.collection)
-  / %br
-  / Location:
-  / = photo.location
-  / %br
-  / Tags:
-  / =photo.tag_list.collect { |tag| link_to(tag, tag_path(tag)) }.join(', ').html_safe
-  / %br
-  / = photo.date.strftime('%B %d, %Y')
-  / %hr
-  /   = render partial: 'photographers/photographer', object: photo.user
+  = link_to truncate(bookmark.title, length: 100), bookmark, style: 'padding:5px'
+  %br
+  = link_to(image_tag(bookmark.image_url || image_url('default-bookmark2.png')), bookmark)
+  = raw bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') 
+ 

@@ -1,13 +1,12 @@
-- model_class = Site
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
-
-%p
-  %strong= model_class.human_attribute_name(:domain) + ':'
-  %br
-  = @site.domain
+  %h1
+    = best_in_place @site, :domain
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), sites_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_site_path(@site), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), site_path(@site), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), site_path(@site), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure? This will permanently delete the site and all bookmarks associated with it')) }, :class => 'btn btn-danger'
+%br
+%br
+.row
+  .to_mason
+    = render @site.bookmarks
+.clearfix

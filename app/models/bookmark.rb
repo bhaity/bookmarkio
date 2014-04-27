@@ -1,8 +1,9 @@
 class Bookmark < ActiveRecord::Base
   validates_presence_of :url
   validate :url_must_be_valid
-  after_validation :generate_short_url, :get_metadata
-  after_save :associate_with_site
+  after_validation :generate_short_url
+  before_create :get_metadata
+  before_save :associate_with_site
 
   acts_as_taggable
   belongs_to :site
@@ -29,7 +30,7 @@ class Bookmark < ActiveRecord::Base
   end
 
   def associate_with_site
-  	self[:site_id] = Site.find_or_create_by(domain: PublicSuffix.parse(URI.parse(url).host).domain).id 
+  	self[:site_id] = Site.find_or_create_by(domain: PublicSuffix.parse(URI.parse(url).host).domain).id
   end
 
 end

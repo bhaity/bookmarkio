@@ -20,6 +20,15 @@
  */
 
 .container.content{
-	padding-top:140px;
-	min-height: 1000px;
+  padding-top:140px; 
+  min-height: 1000px;
+}
+
+.token-input-list-facebook{
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+input, textarea{
+	color:black;
 }

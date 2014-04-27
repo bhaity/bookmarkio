@@ -17,9 +17,12 @@
 //= require imagesloaded.pkgd.min.js
 //= require masonry.pkgd.min.js
 //= require jquery.tokeninput.js
+//= require best_in_place
 //= require_tree .
 
 $(document).ready(function(){
+
+  $(".best_in_place").best_in_place();
   
   var url = $('.tag-select').data('url');
   $('.tag-select').tokenInput(url, {

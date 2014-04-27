@@ -5,6 +5,7 @@ class SitesController < ApplicationController
   # GET /sites.json
   def index
     @sites = Site.all
+    @header = "All sites"
   end
 
   # GET /sites/1
