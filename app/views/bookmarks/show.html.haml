@@ -8,9 +8,18 @@
       = link_to(image_tag(@bookmark.image_url || image_url('default-bookmark2.png'), style: 'max-width:100%'), @bookmark.url)
     .col-md-6
       %p
+        = link_to("View Page", @bookmark.url, class: "btn btn-large btn-success")
+      %p
         %strong= model_class.human_attribute_name(:description) + ':'
         %br
         = @bookmark.description
+        %br
+        %br
+      %p
+        %strong= "Tags:"
+        %br
+        = raw @bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+
         %br
         %br
       %p
@@ -28,7 +37,7 @@
       %p
         %strong= model_class.human_attribute_name(:short_url) + ':'
         %br
-        = link_to("#{@bookmark.url}", @bookmark.short_url)
+        = link_to("#{@bookmark.short_url}", @bookmark.short_url)
         %br
         %br
  

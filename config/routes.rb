@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :sites
 
+  get 'tags/:tag', to: 'bookmarks#index', as: :tag
+
+  get '/home/autocomplete_tags', to: 'tags#autocomplete_tags', as: 'autocomplete_tags'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

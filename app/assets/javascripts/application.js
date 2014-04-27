@@ -16,6 +16,9 @@
 //= require turbolinks
 //= require imagesloaded.pkgd.min.js
 //= require masonry.pkgd.min.js
+//= require jquery.tokeninput.js
+//= require select2
+//= require select2.js
 //= require_tree .
 
 $(document).ready(function() {
@@ -25,4 +28,14 @@ $(document).ready(function() {
       itemSelector: '.bookmark-tile'
     });
   });
+  
+  var url = $('.tag-select').data('url');
+  $('.tag-select').tokenInput(url, {
+  	theme: 'facebook',
+  	minChars: 2,
+    allowCustomEntry: true,
+    preventDuplicates: true
+    //prePopulate: $('#movie_tag_list_tokens').data('load')
+  });
+
 });

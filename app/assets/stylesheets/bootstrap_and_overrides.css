@@ -9,3 +9,25 @@
 .form-actions{
   background-color: transparent;
 }
+
+.jumbotron{
+  background-color:transparent;
+}
+
+
+a {
+	color:white;
+}
+
+a:visited{
+	color:white;
+}
+
+a.hover{
+	text-decoration:none;
+	background-color:transparent;
+}
+
+.controls{
+  color:black;
+}
