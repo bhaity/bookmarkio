@@ -2,20 +2,20 @@
 
 This app enables the user to create bookmarks and add tags to them. The user can search though bookmarks and sites, and filter by tags. The search feature matches tags as well as attributes on the bookmark/site. The part of searching that generates a SQL LIKE statement has been extracted into a concern at app/models/concerns/searchable.rb. This concern can be applied to any future model:
 
-```
-model.rb
+
+inside model.rb:
 
 include Searchable
-searchable_by :column1, :column2, :column3 ...
-```
 
-Then you can call **Model.search(query)** which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by.
+searchable_by :column1, :column2, :column3 ... etc
+
+
+Then you can call Model.search(query) which will generate SQL LIKE queries joined together by OR for each of the columns specified in searchable_by.
 
 The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It is deployed on heroku and can be viewed at http://bookmarkio.herokuapp.com/
 
 == Clone
 
-```
 1. git clone https://github.com/bhaity/bookmarkio.git
 
 2. cd bookmarkio/
@@ -25,21 +25,28 @@ The app uses Ruby 2.0.0, Rails 4, SQLite3 in dev and PostGres in production. It 
 4. rake db:migrate
 
 5. rails s
-```
+
 
 == Gems/JS used
 
 
 
 gem 'acts-as-taggable-on' - provides tagging functionality for bookmarks
+
 gem 'metainspector' - pulls metadata like title, description and keywords from the URL
+
 gem 'shorturl' - uses TinyURL to shorten the URLS
+
 gem 'twitter-bootstrap-rails' - for front end development, mainly layout, buttons and inputs
+
 gem 'public_suffix' - used to grab the domain from the URL
+
 gem 'best_in_place' - used to edit bookmarks and sites on the fly
 
 imagesloaded.js - preloads images for masonry
+
 masonry.js - nicely fits together bookmark partials of varying height
+
 jquery.tokeninput.js - used for the tagging interface on the homepage
 
 
