@@ -9,7 +9,7 @@ class SitesController < ApplicationController
                Site.joins(:bookmarks).uniq.search(params[:query]).order(:domain)
       @header = "Searching sites by: #{params[:query]}"
     else
-      @sites = Site.order('domain DESC').all
+      @sites = Site.order(:domain).all
       @header = "All sites"
     end
   end
