@@ -46,3 +46,14 @@ small{
 .field_with_errors{
 	width: 100%;
 }
+
+.btn-orange{
+  color:white;
+  background-color: #F5961D;
+  border-color: #F5961D;
+}
+
+.btn-orange:hover{
+  color:white;
+  background-color:#E78509;
+}

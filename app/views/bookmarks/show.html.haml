@@ -9,7 +9,7 @@
       = link_to(image_tag(@bookmark.image_url || image_url('default-bookmark2.png'), class: 'bookmark-show-image' ), @bookmark.url)
     .col-md-6
       %p
-        = link_to("View Page", @bookmark.url, class: "btn btn-large btn-success")
+        = link_to("View Page", @bookmark.url, class: "btn btn-large btn-orange")
       %p
         %strong= model_class.human_attribute_name(:description) 
         %br

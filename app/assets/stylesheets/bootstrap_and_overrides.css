@@ -32,3 +32,16 @@ a:hover{
 .controls{
   color:black;
 }
+
+a.btn{
+  text-shadow: none;
+}
+
+a.btn:hover{
+  color:white !important;
+}
+
+a.btn.btn-orange:hover{
+  #E78509
+}
+

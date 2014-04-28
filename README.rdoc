@@ -58,5 +58,7 @@ jquery.tokeninput.js - used for the tagging interface on the homepage
 - suggest tags from the site's metadata keywords before bookmark creation so the user can see and approve/edit them.
 - when searching sites by tag name, the bookmark count displayed in parenthesis should only show the number of bookmarks from that site that include the query tag.
 - improve tagging effiency by using a key/value store instead e.g. redis
+- fully responsive css
+- more comprehensive test suite
 
 
